@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Text Analyzer</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Text Analyzer [dx]</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <form class="d-flex" action="/analyze" method="post"> {% csrf_token %}
+                    <input class="form-control me-2" name="main_text2" type="text" placeholder="Enter Your Text">
+                    <button class="btn btn-outline-success" type="submit">Count</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</nav>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>GET RESULTS FAST</strong> Enter something And Check it Out the things you need!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<form class="container" action="analyze" method="post"> {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Enter the text and select the magic you want</label>
+        <textarea class="form-control" name="main_text" id="exampleFormControlTextarea1" rows="8"></textarea>
+    </div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="punc" type="checkbox" role="switch" id="flexSwitchCheckChecked2">
+        <label class="form-check-label" for="flexSwitchCheckChecked2">Punctuation Remover</label>
+    </div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="upper" type="checkbox" role="switch" id="flexSwitchCheckChecked3">
+        <label class="form-check-label" for="flexSwitchCheckChecked3">UpperCase</label>
+    </div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="newlineremover" type="checkbox" role="switch"
+               id="flexSwitchCheckChecked4">
+        <label class="form-check-label" for="flexSwitchCheckChecked4">New Line Remover</label>
+    </div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="spaceremover" type="checkbox" role="switch" id="flexSwitchCheckChecked6">
+        <label class="form-check-label" for="flexSwitchCheckChecked6">Space Remover</label>
+    </div>
+    <button type="submit" class="btn btn-dark mt-2">Analyzed</button>
+</form>
+<!--    <h3 class="mt-5">Choose Any 1 (if you are selecting here then dont select up)</h3>-->
+<!--    <div class="form-check form-switch mt-5">-->
+<!--        <input class="form-check-input" name="word_count" type="checkbox" role="switch" id="flexSwitchCheckChecked1"-->
+<!--               checked>-->
+<!--        <label class="form-check-label" for="flexSwitchCheckChecked1">Word Count</label>-->
+<!--    </div>-->
+<!--    <div class="form-check form-switch">-->
+<!--        <input class="form-check-input" name="charcount" type="checkbox" role="switch" id="flexSwitchCheckChecked5">-->
+<!--        <label class="form-check-label" for="flexSwitchCheckChecked5">Character Count</label>-->
+<!--    </div>-->
+<!--    <button type="submit" value="Analyze" class="btn btn-dark mt-2">Analyze</button>-->
+<!--</form>-->
+
+<!--<form action="analyze" method="get">-->
+<!--    <input type="text" placeholder="Enter Your Text" name="dj_text">-->
+<!--    <input type="checkbox" name="word_count">-->
+<!--    <input type="checkbox" name="punc">-->
+<!--    <input type="checkbox" name="upper">-->
+<!--    <input type="checkbox" name="newlineremover">-->
+<!--    <input type="checkbox" name="charcount">-->
+<!--    <input type="checkbox" name="spaceremover">-->
+<!--</form>-->
+
+
+<script src="index.js"></script>
+</body>
+</html>
